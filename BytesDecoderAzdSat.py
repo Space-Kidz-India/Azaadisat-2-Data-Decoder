@@ -2,6 +2,9 @@ import struct
 from datetime import datetime
 import os
 
+
+
+
 constants = {"message_type": {"1": {"name": "Satellite info",
                                     "struct": '<HBBBfffffB',
                                     "parameters": ["Boot Count",
@@ -194,4 +197,8 @@ def DecodeBytesToMessages(data):
         print(e)
 
 
-DecodeBytesToMessages(b'AZDST2+\x01\x00\x13\x08\x0fUJ\ff\xd2A\ff6A\x00\x00\x02C\x00\x00\xdcA\x00\x00\x00\x00s')
+rawData = b'AZDST2\x03\x01\x00\x01\x00\x06\x05\x02\x00\x80\x85A=\nJA\x00\x00\xaaB\x00\x80\x80A\x11\xc7\xba<\xe9'
+
+# if raw data is in hex use the following converter
+# rawData = bytes.fromhex('415A445354320301000100060502008085413D0A4A410000AA420080804111C7BA3CE9')
+DecodeBytesToMessages(rawData)
